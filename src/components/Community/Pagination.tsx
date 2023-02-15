@@ -47,13 +47,16 @@ export default function Pagination({
       </button>
       <ul className="flex items-center gap-2 text-lg pb-0.5">
         {pageNumbers.map((number) => (
-          <li key={number} className="items-center justify-center">
+          <li
+            key={number}
+            className="items-center justify-center nav-btn rounded hover:bg-gray-600 w-7"
+          >
             <span onClick={() => setPage(number)}>{number}</span>
           </li>
         ))}
       </ul>
       <button
-        className="moveToNextPage"
+        className="nav-btn rounded hover:bg-gray-600"
         onClick={() => {
           nextPage();
         }}

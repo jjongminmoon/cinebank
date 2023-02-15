@@ -11,13 +11,15 @@
 2. 기능
 
 - 영화 검색 : 검색어 자동 완성, 검색 결과 출력
-  <img src = "src/assets/search-page.png">
+  <img src = "src/assets/search-page.png" />
 
 - 영화 상세 정보 확인 : 영화 상세 정보 API 출력
-  <img src = "src/assets/detail-page.png">
+  <img src = "src/assets/detail-page.png" />
 
 - 커뮤니티 페이지 : 영화 리뷰 커뮤니티 게시물 확인 및 작성 가능 (비횐원은 게시물 읽기만 가능)
-  <img src = "src/assets/community-page.png">
+  <img src = "src/assets/write-page.png" />
 
 - 로그인 페이지 : 기본 이메일 주소로 가입하거나 구글 로그인 가능
-  <img src = "src/assets/login-page.png">
+  <img src = "src/assets/login-page.png" />
+
+  3. 기술 스택 : Typescript, Tailwind CSS, React-Quill, Firebase

@@ -48,9 +48,9 @@ export default function Community() {
       <div className="flex flex-col border w-full mt-5 bg-cine-yellow text-cine-navy align-middle">
         <div className="bg-gray-300/50 align-middle flex gap-10 mb-3">
           <div className="pl-5 w-20">Number</div>
-          <div className="w-40">Title</div>
-          <div className="w-40">Movie</div>
-          <div className="w-20">Writer</div>
+          <div className="w-60">Title</div>
+          <div className="w-60">Movie</div>
+          <div className="w-40">Writer</div>
           <div className="w-40">Upload Time</div>
         </div>
         <Posts posts={currentPosts(posts)} />
