@@ -22,4 +22,4 @@
 - 로그인 페이지 : 기본 이메일 주소로 가입하거나 구글 로그인 가능
   <img src = "src/assets/login-page.png" />
 
-  3. 기술 스택 : Typescript, Tailwind CSS, React-Quill, Firebase
+3. 기술 스택 : Typescript, Tailwind CSS, React-Quill, Firebase
