@@ -1,14 +1,17 @@
 import { dbService } from "@/firebase";
 import { useEffect, useState } from "react";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Posts from "./Posts";
 import Pagination from "./Pagination";
+import { getAuth } from "firebase/auth";
 
 export default function Community() {
   const [posts, setPosts] = useState([] as any | undefined);
   const [page, setPage] = useState(1);
   const [postsPerPage, setPostsPerpage] = useState(10);
+  const isMember = getAuth().currentUser;
+  const navigate = useNavigate();
 
   const indexOfLast = page * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
@@ -16,6 +19,18 @@ export default function Community() {
     let currentPosts = 0;
     currentPosts = posts.slice(indexOfFirst, indexOfLast);
     return currentPosts;
+  };
+
+  console.log(isMember);
+
+  const onWrite = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (isMember === null) {
+      alert("Only members can write posts.");
+      navigate("/user");
+    } else {
+      navigate("/write");
+    }
   };
 
   useEffect(() => {
@@ -39,11 +54,10 @@ export default function Community() {
       <p className="font-bold text-2xl mb-3">The Movie Community</p>
       <div className="flex justify-between text-sm">
         <p>- Feel free to share stories about movies you've seen.</p>
-        <Link to={"/write"}>
-          <button type="button" className="btn text-md">
-            Write
-          </button>
-        </Link>
+
+        <button type="button" onClick={onWrite} className="btn text-md">
+          Write
+        </button>
       </div>
       <div className="flex flex-col border w-full mt-5 bg-cine-yellow text-cine-navy align-middle">
         <div className="bg-gray-300/50 align-middle flex gap-10 mb-3">

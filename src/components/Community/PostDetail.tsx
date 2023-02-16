@@ -24,6 +24,7 @@ export default function PostDetail() {
   const [likeData, setLikeData] = useState("");
   const nickname = getAuth().currentUser?.displayName;
   const id = getAuth().currentUser?.uid;
+  const isMember = getAuth().currentUser;
   const navigate = useNavigate();
   const likeList: any[] = detail
     .filter((item: any) => item.id === post_id)
@@ -82,15 +83,19 @@ export default function PostDetail() {
   };
   const onComment = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    await addDoc(collection(dbService, "comment"), {
-      userId: id,
-      nickname: nickname,
-      comment: comment,
-      createdAt: getToday(),
-      unique_id: post_id,
-    });
-    setComment("");
+    if (isMember === null) {
+      alert("Only members can write comments.");
+      navigate("/community");
+    } else {
+      await addDoc(collection(dbService, "comment"), {
+        userId: id,
+        nickname: nickname,
+        comment: comment,
+        createdAt: getToday(),
+        unique_id: post_id,
+      });
+      setComment("");
+    }
   };
 
   useEffect(() => {
@@ -143,7 +148,7 @@ export default function PostDetail() {
                   <div className="p-5 h-10 text-2xl font-bold mb-3">- Content</div>
                   <div
                     dangerouslySetInnerHTML={{ __html: item.text }}
-                    className="flex bg-gray-300/80 h-10 mb-2 p-5 items-center"
+                    className="flex bg-gray-300/80 h-auto mb-2 p-5 items-center"
                   ></div>
                 </div>
                 <div className="flex mt-3 items-center">

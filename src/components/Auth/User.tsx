@@ -32,7 +32,7 @@ export default function Login() {
       createUserWithEmailAndPassword(auth, email, pwd)
         .then(() => {
           alert("회원 가입 완료.");
-          navigate("/user");
+          navigate("/");
         })
         .catch((e) => {
           alert(e);
