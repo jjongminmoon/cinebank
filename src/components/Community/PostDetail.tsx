@@ -21,7 +21,6 @@ export default function PostDetail() {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([] as any | undefined);
   const [likeIcon, setLikeIcon] = useState("♡");
-  const [likeData, setLikeData] = useState("");
   const nickname = getAuth().currentUser?.displayName;
   const id = getAuth().currentUser?.uid;
   const isMember = getAuth().currentUser;

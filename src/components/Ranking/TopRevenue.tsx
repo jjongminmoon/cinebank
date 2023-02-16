@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IMG_API, TMDB_API } from "../Api/Api";
 
-export default function NowPlaying() {
+export default function TopRevenue() {
   const [list, setList] = useState<TmdbProps[]>([]);
 
   useEffect(() => {
